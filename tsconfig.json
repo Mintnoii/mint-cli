@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "outDir": "bin",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"],
+    "baseUrl": "src",
+    "paths": {
+      "@utils/*": ["utils/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.json"],
+  "exclude": ["node_modules/**"]
+}

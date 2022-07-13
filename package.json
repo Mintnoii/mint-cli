@@ -1,0 +1,41 @@
+{
+  "name": "mint-cli",
+  "version": "0.0.1",
+  "description": "mintnoii's fe cli",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "mint": "./bin/index.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf bin && tsc --build",
+    "watch": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mintnoii/mint-cli.git"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "author": "mintnoii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mintnoii/mint-cli/issues"
+  },
+  "homepage": "https://github.com/Mintnoii/mint-cli#readme",
+  "devDependencies": {
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.19.0",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "commander": "^9.3.0",
+    "zx": "^7.0.7"
+  }
+}
