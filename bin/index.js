@@ -3,10 +3,11 @@ import { program } from "commander";
 import { echo } from "zx";
 // import { init } from "./init.js";
 // import {creator} from "./creator.js";
-// import { showXmovCli, errorText } from "./utils/print.js";
+import { showXmovCli } from "./utils/print.js";
 // import { listTemplate, addTemplate, removeTemplate } from "./utils/index.js";
+import { listTemplate } from "./utils/tmpl.js";
 // import {loadPackageJson} from "./utils/load.js";
-// program.addHelpText("before", showXmovCli());
+program.addHelpText("before", showXmovCli());
 program.configureOutput({
 // writeOut: (str) => process.stdout.write(`[OUT] ${str}`),
 // writeErr: (str) => process.stdout.write(`[ERR] ${str}`),
@@ -26,8 +27,8 @@ program
 program
     .command("list")
     .alias("ls")
-    .description("👀 查看当前所有模板");
-//   .action(() => listTemplate());
+    .description("👀 查看当前所有模板")
+    .action(() => listTemplate());
 program
     .command("add-tmpl <template_name> <git_url>")
     .description("📥 添加自定义模板：模板名 模版地址");
@@ -40,7 +41,7 @@ program
 program
     .command("create <app-name>")
     .alias("c")
-    .description("🧩 创建一个基于 vite + vue3 + ts 的项目")
+    .description("🧩 创建一个新项目")
     .option("-f, --force", "覆盖项目同名文件夹，强制初始化")
     .action((name, options) => echo(name, options));
 // await hasDir(name);
