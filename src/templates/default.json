@@ -1,6 +1,6 @@
 {
     "vue-default": {
-		"url": "https://github.com/Mintnoii/template-vue",
+		"url": "git@github.com:Mintnoii/template-vue.git",
 		"desc": "Vue 默认模板",
 		"author": "Mintnoii"
 	}

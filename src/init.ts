@@ -3,18 +3,19 @@ import {
   startProject,
   checkAndClearDir,
   writePackageJson,
-} from "./utils/index.js";
+} from "./utils/help.js";
 //   import {fetchTmpl} from './utils/fetchTmpl.js'
 //   import {selectXmovNpm} from './utils/selectXmovNpm.js'
 import { getProjectInfo } from "./utils/prompts.js";
 import { errorText } from './utils/print.js'
+import {fetchTmpl} from './utils/tmpls.js';
 // 初始化项目
 export const init = async (project_name: string, options: any) => {
   const cleared = await checkAndClearDir(project_name, options.force);
   if (cleared) {
     // 创建交互
     try {
-      // await fetchTmpl(project_name);
+      await fetchTmpl(project_name);
       // const xmovNpmArr = await selectXmovNpm();
       // const answers = await getProjectInfo();
       // await writePackageJson(project_name, answers,xmovNpmArr)
