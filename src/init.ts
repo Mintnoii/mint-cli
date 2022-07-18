@@ -4,8 +4,7 @@ import {
   checkAndClearDir,
   writePackageJson,
 } from "./utils/help.js";
-//   import {fetchTmpl} from './utils/fetchTmpl.js'
-//   import {selectXmovNpm} from './utils/selectXmovNpm.js'
+//   import {selectPrivateNpm} from './utils/selectPrivateNpm.js'
 import { getProjectInfo } from "./utils/prompts.js";
 import { errorText } from './utils/print.js'
 import {fetchTmpl} from './utils/tmpls.js';
@@ -16,9 +15,10 @@ export const init = async (project_name: string, options: any) => {
     // 创建交互
     try {
       await fetchTmpl(project_name);
-      // const xmovNpmArr = await selectXmovNpm();
-      // const answers = await getProjectInfo();
-      // await writePackageJson(project_name, answers,xmovNpmArr)
+      // const privateNpmArr = await selectPrivateNpm();
+      const answers = await getProjectInfo();
+      // await writePackageJson(project_name, answers,privateNpmArr)
+      await writePackageJson(project_name, answers,[])
       startProject(project_name);
     } catch (err) {
       exit(errorText(`❌ 初始化失败 ${err}`));

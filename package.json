@@ -40,6 +40,7 @@
   "dependencies": {
     "cli-table3": "^0.6.2",
     "commander": "^9.3.0",
+    "ejs": "^3.1.8",
     "figlet": "^1.5.2",
     "prompts": "^2.4.2",
     "zx": "^7.0.7"

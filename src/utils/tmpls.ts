@@ -44,7 +44,6 @@ export const listTemplate = () => {
 export const addCustomTmpl = async () => {
   const tmplInfo = await getTmplInfo();
   const {name, ...rest} = tmplInfo;
-  echo(JSON.stringify(tmplInfo),'====')
   await fs.writeFileSync(
     customTmplJSONPath,
     JSON.stringify(
