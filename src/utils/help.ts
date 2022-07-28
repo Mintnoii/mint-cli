@@ -40,12 +40,12 @@ export const checkAndClearDir = async (
  *
  * @param project_name 项目名称
  * @param answers 项目信息 通过 prompts 获取
- * @param xmovNpm 需要安装的 xmov-npm 包
+ * @param privateNpm 需要安装的 私有 npm 包
  */
 export const writePackageJson = async (
   project_name: string,
   answers: any,
-  xmovNpm: any[]
+  privateNpm: any[]
 ) => {
   const targetPath = `${process.cwd()}/${project_name}/package.json`;
   const tmpJson = await fs.readJsonSync(targetPath);
@@ -54,8 +54,8 @@ export const writePackageJson = async (
     ...rest,
     ...answers,
     name: project_name,
-    // 将对象数组 xmovNpm [{name:version}] 放进 dependencies 字段
-    dependencies: Object.assign(dependencies, xmovNpm.reduce((acc, { name, version }) => {
+    // 将对象数组 privateNpm [{name:version}] 放进 dependencies 字段
+    dependencies: Object.assign(dependencies, privateNpm.reduce((acc, { name, version }) => {
       acc[name] = version;
       return acc;
     }, {}))

@@ -5,7 +5,7 @@ import prettier from "prettier";
 import { getUILib, selectBuiltInFeatures } from "./prompts.js";
 import { exit } from "./help.js";
 import { successLog, linkLog, errorText } from "./print.js";
-import {xmovTmplPath} from './load.js';
+import {mintTmplPath} from './load.js';
 const templateFiles: string[] = [
   "presets/presets.ts",
   "package.json",
@@ -50,7 +50,7 @@ const ejsRender = async (filePath: string, options: any) => {
 
 export const createProject = async (project_name: string) => {
   // CLI 模板文件夹路径
-  const tmplDir = xmovTmplPath;
+  const tmplDir = mintTmplPath;
   const appDir = path.resolve(process.cwd(), project_name);
   // 执行自定义选项
   const { UIComponents } = await getUILib();

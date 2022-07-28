@@ -113,7 +113,7 @@ export const needPrivateNpm = async () => {
   },{onCancel});
 }
 
-// 选择 xmov npm 包
+// 选择私有 npm 包
 export const outputPrivateNpm = async (npmOptions:any) => {
   return prompts({
     type: "multiselect",

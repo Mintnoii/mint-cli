@@ -3,8 +3,8 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// xmov cli 模板路径
-export const xmovTmplPath = path.resolve(__dirname, "../../xmovTmpl");
+// mint cli 模板路径
+export const mintTmplPath = path.resolve(__dirname, "../../mintTmpl");
 
 // 默认模板配置文件路径
 export const defaultTmplJSONPath = path.resolve(__dirname, "../templates/default.json");

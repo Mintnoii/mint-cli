@@ -1,0 +1,75 @@
+{
+  "name": "template-vue-default",
+  "version": "0.0.0",
+  "author": "mint-cli",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "staging": "vue-tsc--noEmit && vite build--mode staging",
+    "lint": "eslint src",
+    "preview": "vite preview",
+    "serve": "vite preview--host",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+	<% if (needVueUse === true) { -%>
+	  "@vueuse/core": "^9.0.0",
+	<% } -%>
+    <% if (UIComponents === 'antd') { -%>
+      "ant-design-vue": "^3.2.10",
+    <% } -%>
+    <% if (UIComponents === 'element') { -%>
+      "element-plus": "2.2.11",
+    <% } -%>
+    <% if (UIComponents === 'naive') { -%>
+      "naive-ui": "2.31.0",
+    <% } -%>
+    "axios": "^0.27.2",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.0.17",
+    "ua-parser-js": "^1.0.2",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@types/node": "^18.6.2",
+    "@types/nprogress": "^0.2.0",
+    "@types/ua-parser-js": "^0.7.36",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+	"@vitejs/plugin-legacy": "^2.0.0",
+	"@vitejs/plugin-vue": "^3.0.1",
+	"@vitejs/plugin-vue-jsx": "^2.0.0",
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.3.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1",
+    "sass": "^1.54.0",
+    "typescript": "^4.7.4",
+    "unplugin-auto-import": "^0.10.2",
+    "unplugin-vue-components": "^0.21.2",
+	"vite": "^3.0.3",
+    <% if (needFileRoute) { -%>
+      "vite-plugin-pages": "^0.25.0",
+      "vite-plugin-vue-layouts": "^0.7.0",
+    <% } -%>
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
+    "vite-plugin-windicss": "^1.8.7",
+    "vue-tsc": "^0.39.2",
+    "windicss": "^3.5.6"
+  },
+  "lint-staged": {
+    "*.{ts,js,vue}": [
+      "eslint"
+    ]
+  }
+}

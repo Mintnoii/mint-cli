@@ -1,0 +1,55 @@
+import { createRouter, createWebHistory } from 'vue-router';
+<% if (needFileRoute) { -%>
+  import { setupLayouts } from 'virtual:generated-layouts';
+  import generatedRoutes from 'virtual:generated-pages';
+ <% } else { %>
+  import BasicLayout from '@/layout/BasicLayout.vue';
+
+const routes = [
+  {
+    path: '/',
+    name: 'mint',
+    redirect: { name: 'home' },
+    component: BasicLayout,
+    children: [
+      {
+        path: '',
+        name: 'home',
+        component: () => import('@/pages/index.vue')
+      },
+      {
+        path: 'about',
+        name: 'about',
+        component: () => import('@/pages/about/index.vue')
+      },
+      {
+        path: 'example',
+        name: 'example',
+        component: () => import('@/pages/example/index.vue')
+      },
+    ]
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@/pages/404/index.vue'),
+  },
+  {
+    path: "/:catchAll(.*)",
+    redirect: { name: '404' },
+  }
+];
+<% } -%>
+
+const router = createRouter({
+  // 新的vue-router4 使用 history路由模式 和 base前缀
+  // history: createWebHashHistory(),
+  history: createWebHistory(),
+  <% if (needFileRoute) { -%>
+  routes: setupLayouts(generatedRoutes)
+  <% } else { %>
+  routes,
+  <% } %>
+});
+
+export default router;

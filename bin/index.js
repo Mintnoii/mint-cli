@@ -2,10 +2,10 @@
 import { program } from "commander";
 import { init } from "./init.js";
 import { creator } from "./creator.js";
-import { showXmovCli, errorText } from "./utils/print.js";
+import { showMintCli, errorText } from "./utils/print.js";
 import { listTemplate, addCustomTmpl, rmCustomTmpl } from "./utils/tmpls.js";
 // import {loadPackageJson} from "./utils/load.js";
-program.addHelpText("before", showXmovCli());
+program.addHelpText("before", showMintCli());
 program.configureOutput({
     // writeOut: (str) => process.stdout.write(`[OUT] ${str}`),
     // writeErr: (str) => process.stdout.write(`[ERR] ${str}`),
@@ -13,7 +13,7 @@ program.configureOutput({
     outputError: (str, write) => write(errorText(str)),
 });
 program
-    .name("xmov")
+    .name("mint")
     //   .version(loadPackageJson().version, "-v, --version", "查看当前版本")
     .option("-h, --help", "显示命令帮助");
 program

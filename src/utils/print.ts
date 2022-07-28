@@ -3,7 +3,7 @@ import figlet from "figlet";
 
 // export const figletLog = (msg:string) => figlet.textSync(msg,{font:'big'})
 
-export const showXmovCli = () =>
+export const showMintCli = () =>
   chalk.magenta.bold(
     figlet.textSync("M I N T - C L I", { font: "big" }) +
       "\n" +
